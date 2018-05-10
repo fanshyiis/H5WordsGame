@@ -85,6 +85,9 @@
 
 ![enter image description here](http://koalareading-teacher-web.oss-cn-beijing.aliyuncs.com/test/4.2%E5%B0%8F%E6%B8%B8%E6%88%8F-%E7%BB%84%E8%AF%8D.png)
 
+![enter image description here](http://koalareading-teacher-web.oss-cn-beijing.aliyuncs.com/test/WeChatSight93.gif)
+
+
 
 
  
