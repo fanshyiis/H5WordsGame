@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <title>组词-考拉阅读</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="./css/common.css">
+    <link rel="stylesheet" type="text/css" href="./css/animate.css">
+    <script type="text/javascript" src="https://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
+    <script type="text/javascript">
+    // $youziku.load(".font_text", "69e327fbcadd4608b49d4688bc6b8c32", "jdzhonyuanjian");
+    $youziku.load(".t1", "c2373d6597b34211b086ea59ec401863", "AaFendudu");
+    $youziku.load(".chooseText", "c2373d6597b34211b086ea59ec401863", "AaFendudu");
+    /*$youziku.load("#id1,.class1,h1", "69e327fbcadd4608b49d4688bc6b8c32", "jdzhonyuanjian");*/
+    /*．．．*/
+    $youziku.draw();
+    </script>
+</head>
+
+<body>
+    <div id="mv" style="width: 40px; height: 40px"></div>
+    <!-- <audio src="./mp3/sound_bg.mp3" controls autoplay loop style="display: none;"></audio> -->
+    <div id="vue">
+    <div id="bggg" @click="playAudio('bgm')"></div>
+    <div class="tcbg" v-if="windowBg" v-cloak>
+        <img @click="getNextPass()" class="tc animated" :class="{bounceIn: windowBg}" src="./img/tc.png">
+    </div>
+    <audio id="bgm" src="./mp3/bgmzuci.mp3" loop style="display: none;"></audio>
+    <audio id="touchCard" src="./mp3/soundzuci1.mp3" style="display: none;"></audio>
+    <audio id="success" src="./mp3/soundzuci2.mp3" style="display: none;"></audio>
+    <audio id="error" src="./mp3/soundzuci3.mp3" style="display: none;"></audio>
+    <audio id="restart" src="./mp3/soundzuci4.mp3" style="display: none;"></audio>
+    <audio id="next" src="./mp3/soundzuci5.mp3" style="display: none;"></audio>
+    <div class="header" v-cloak>
+        <img class="bac_btn" src="./img/bac_btn.png">
+        <div class="t1">组词-{{pass}}</div>
+    </div>
+    <div class="info">
+        <div class="chooseText" v-cloak>{{one?one.f:''}}{{two?two.f:''}}</div>
+        <img class="icon1" src="./img/icon1.png">
+        <img class="tree" src="./img/tree.png">
+        <img class="bac" src="./img/bac.png">
+    </div>
+    <div class="area clear" v-cloak>
+        <div class="gridAll clear">
+            <div class="grid" v-for="(item, index) in gridList">
+                <template v-if="item.f">
+                <div v-show="!item.choose" class="font_text">{{item.f}}</div>
+                <img v-show="item.f && !item.choose" class="font_bac" src="./img/font_bac.png">
+                <!-- <img v-if="item.f" class="font_cbac" src="./img/cbac.png"> -->
+                </template>
+            </div>
+        </div>
+        <div class="gridAll2 clear">
+            <div class="grid2" v-for="(item, index) in gridList">
+                <div class="boom" :id="item.x + '' + item.y"></div>
+                <div v-if="item.f">
+                <div v-show="item.choose" class="font_text animated pulse infinite">{{item.f}}</div>
+                <!-- <img class="font_bac" src="./img/font_bac.png"> -->
+                <img v-show="item.f && item.choose" class="font_cbac animated pulse infinite" src="./img/cbac.png">
+                </div>
+            </div>
+        </div>
+        <div class="gridAll2 clear">
+            <div class="grid2" v-for="(item, index) in gridList"  @click="choose(item)">
+                
+            </div>
+        </div>
+    </div>
+    <div class="clear">
+        <img @click="reStart()" :class='{rubberBand: restart}' class="btn_r animated" src="./img/btn.png">
+    </div>
+    <div class="bottom">
+        <img class="img_bottom" src="./img/bottom.png">
+    </div>
+    </div>
+    <script src="https://cdn.bootcss.com/bodymovin/4.13.0/bodymovin.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/vue.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
